@@ -1,8 +1,37 @@
 # Getting Started with Create React App
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/055401594e754b83803150fc801d33f1)](https://app.codacy.com/gh/rudecat/jira-timelog-app?utm_source=github.com&utm_medium=referral&utm_content=rudecat/jira-timelog-app&utm_campaign=Badge_Grade)
+![Docker Pulls](https://img.shields.io/docker/pulls/rudecat/timelog)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/rudecat/timelog/latest)
+![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/rudecat/timelog/latest)
+
+# Jira Timelog App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Docker Hub
+
+You can access the packaged docker image from below link.
+
+[Rudecat/Timelog](https://hub.docker.com/r/rudecat/timelog)
+
+## Run the docker image
+
+Due to the security measure put on javascript by Jira, this docker image includes NGINX as proxy, and insert Basic Token in the header along with some security check headers.
+
+To run the application, please use below command
+
+```
+docker run --rm -p 443:443 -e BASICTOKEN="<username:password in base64>" -e JIRA_URL="<jira server url after https://>" rudecat/timelog
+```
+
+example: 
+
+```
+docker run --rm -p 443:443 -e BASICTOKEN="dXNlcm5hbWU6cGFzc3dvcmQ=" -e JIRA_URL="jira.atlassian.com" rudecat/timelog
+```
+
+Once it's started, you shall be able to access the app through the link https://localhost
 
 ## Available Scripts
 
