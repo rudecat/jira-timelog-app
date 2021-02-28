@@ -30,7 +30,7 @@ build_timelog_app:
 package_docker_image:
 	echo "Package docker image"
 	rm -rf ./docker/html/*
-	cp -r ./build ./docker/html
+	cp -r ./build/* ./docker/html/
 	cd docker && docker build . -t rudecat/timelog:${version}
 
 ## Tag and push docker image to docker hub

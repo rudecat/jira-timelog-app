@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useState } from 'react';
 import React from 'react'
-import { Button, Form , Col, Row, InputGroup, FormControl, ListGroup} from 'react-bootstrap';
+import { Button, Form , Col, Row, InputGroup, FormControl, ListGroup, ProgressBar } from 'react-bootstrap';
 
 const defaultCards =
   [
@@ -79,7 +79,7 @@ function App() {
       <div>
         <Form onSubmit={handleSubmit}>
             <Form.Row>
-               <Form.Label column sm="3"><a href={props.Jurl} target="_blank" rel="noreferrer">{props.Jkey}-{props.Jsummary}</a></Form.Label>
+               <Form.Label column sm="3"><a href={props.Jurl} target="_blank" rel="noreferrer" class="text-light">{props.Jkey}-{props.Jsummary}</a></Form.Label>
                <Col sm="2">
                 <InputGroup className="mb-2">
                   <FormControl id="timelog" type="number" defaultValue={props.estimate} required />
@@ -111,7 +111,7 @@ function App() {
   );
 
   const LogItem = props => (
-    <ListGroup.Item>{props.Jkey} - {props.Jsummary} --- {props.timeLogged}</ListGroup.Item>
+    <ListGroup.Item class="text-light">{props.Jkey} - {props.Jsummary} --- {props.timeLogged}</ListGroup.Item>
   );
 
   async function fetchFilter(filter) {
@@ -183,8 +183,9 @@ function App() {
 
   const LoggedTime = props => (
     <>
+      <Col sm="5"><h1 class="page-header">Total time logged</h1></Col>
       <Row>
-        <Col sm="5"><h1 class="page-header">Total time logged --- {submitTime} / 450 minutes</h1></Col> <Button onClick={clearLog}>Clear Log</Button>
+      <Col sm="5"><ProgressBar animated variant="success" min={10} now={submitTime*100/450} label={`${submitTime*100/450}%`}/></Col><Button onClick={clearLog}>Clear Log</Button>
       </Row>
     </>
   );
@@ -213,7 +214,7 @@ function App() {
         </Button>
       </Form>
       </Col>
-      <Col sm="0.5" > OR </Col>
+      <Col sm="0.6"><p class="text-light"> OR </p></Col>
       <Col sm="3" >
       <Form onSubmit={loadFilter}>
         <Form.Group controlId="loadFilter">
