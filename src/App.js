@@ -185,7 +185,7 @@ function App() {
     <>
       <Col sm="5"><h1 class="page-header">Total time logged</h1></Col>
       <Row>
-      <Col sm="5"><ProgressBar animated variant="success" min={10} now={submitTime*100/450} label={`${submitTime*100/450}%`}/></Col><Button onClick={clearLog}>Clear Log</Button>
+      <Col sm="5"><ProgressBar animated variant="success" min={10} now={Math.round(submitTime*100/450)} label={`${Math.round(submitTime*100/450)}%`}/></Col><Button onClick={clearLog}>Clear Log</Button>
       </Row>
     </>
   );

@@ -33,15 +33,15 @@ h1, h2 {
   text-decoration: underline white;
 }
 
-Col {
-  color:white!
-}
+Col { color:white! }
 
 div { background-color: #303030; }
 
+.list-group-item { background-color: #303030; }
+
 body {
   color: white;
-  background-color: #404040;
+  background-color: #303030;
 }
 
 @keyframes App-logo-spin {

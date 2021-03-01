@@ -10,6 +10,7 @@
 
 # production
 /build
+/docker/html
 
 # misc
 .DS_Store
